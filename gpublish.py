@@ -95,7 +95,8 @@ def create_target_dir(service):
     dir_metadata = {'name': TARGETDIR, 'mimeType': 'application/vnd.google-apps.folder'}
     directory_result = service.files().create(body=dir_metadata, fields='id').execute()
     folder_id = directory_result.get('id')
-    print('Folder ID: %s' % folder_id)
+    if ARGS.verbose:
+        print('Created FolderID: %s' % folder_id)
     return folder_id
 
 def create_auth():
@@ -130,7 +131,8 @@ def upload_native_file(service, folder_id, src_mime):
         body=file_metadata, media_body=media, fields='id'
         ).execute()
     native_file_id = native_file_result.get('id')
-    print('Native File ID: %s' % native_file_id)
+    if ARGS.verbose:
+        print('Uploaded Native FileID: %s' % native_file_id)
 
 def upload_google_file(service, folder_id, src_mime, dst_mime):
     """
@@ -142,7 +144,8 @@ def upload_google_file(service, folder_id, src_mime, dst_mime):
         body=file_metadata, media_body=media, fields='id'
         ).execute()
     google_file_id = google_file_result.get('id')
-    print('Google File ID: %s' % google_file_id)
+    if ARGS.verbose:
+        print('Converted Google FileID: %s' % google_file_id)
     return google_file_id
 
 def convert_file_to_pdf(service, folder_id, google_file_id):
@@ -158,6 +161,8 @@ def convert_file_to_pdf(service, folder_id, google_file_id):
     media_body = apiclient.http.MediaIoBaseUpload(file_handle, mimetype=pdf_mime)
     pdf_file_id = service.files().create(body=body, media_body=media_body).execute()['id']
     move_output_pdf(service, pdf_file_id, folder_id)
+    if ARGS.verbose:
+        print('Created PDF FileID: %s' % pdf_file_id)
 
 def main():
     """
