@@ -64,7 +64,9 @@ Script Names and Purposes
 
 Scripts and Functions:
 
-    1. gpublish - this is the first script combining upload, download, and file conversion
+    1. gpublish - this script combines upload, download, and file conversion with mkdir
+
+    2. gmkdir - this is another version of mkdir, supporting creating directory trees
 
                    
 To Do List:
