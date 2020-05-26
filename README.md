@@ -40,7 +40,7 @@ The steps are as follows:
        (this may take a while as this will download all of the libraries that it uses):
 
         pipenv install
-        
+
 Getting this set up
 ===================
 
@@ -53,6 +53,13 @@ Getting this set up
 
 [Google-Drive-Quickstart](https://developers.google.com/drive/api/v3/quickstart/python)
 
+    3. Then you will run the quickstart python script providing two arguments
+
+       * CREDENTIALS file - this is the credentials set up for the account
+
+       * TOKENPICKLE file - the file where the session token is stored and refreshed
+
+CAUTION: Please note that the SCOPE is for the Gdrive which means read and write access.
 
 Dependencies
 ============
@@ -64,11 +71,15 @@ Script Names and Purposes
 
 Scripts and Functions:
 
-    1. gpublish - this script combines upload, download, and file conversion with mkdir
+    1. gpublish - this is the first script combining upload, download, and file conversion
 
-    2. gmkdir - this is another version of mkdir, supporting creating directory trees
+    2. mymimetypes - this is a helper file containing mapping for mime types used by gpublish
 
-                   
+    3. quickstart - this is the boot strapper for confirming credentials and storing tokens
+	
+	4. gmkdir - this is another version of mkdir, supporting creating directory trees
+
+
 To Do List:
 ===========
 
