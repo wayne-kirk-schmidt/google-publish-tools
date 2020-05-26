@@ -17,3 +17,8 @@ configparser = "*"
 apiclient = "*"
 httplib2 = "*"
 oauth2client = "*"
+pickle = "*"
+apiclient = "*"
+google = "*"
+google_auth_oauthlib = "*"
+
