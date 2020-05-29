@@ -61,7 +61,7 @@ Getting this set up
 
 CAUTION: Please note that the SCOPE is for the Gdrive which means read and write access.
 
-[Specific Google Setup Steps](https://github.com/wks-sumo-logic/gpublish/blob/master/doc/GSETUP.md)
+[Specific Google Setup Steps](https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/doc/GSETUP.md)
 
 IMPORTANT: Please follow all of the steps in the above instructions to setup the google credentials.
 
