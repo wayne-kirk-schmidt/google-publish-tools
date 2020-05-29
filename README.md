@@ -61,6 +61,30 @@ Getting this set up
 
 CAUTION: Please note that the SCOPE is for the Gdrive which means read and write access.
 
+[Specific Google Setup Steps](https://github.com/wks-sumo-logic/gpublish/blob/master/doc/GSETUP.md)
+
+IMPORTANT: Please follow all of the steps in the above instructions to setup the google credentials.
+
+Quicksttart Script Usage
+========================
+
+prompt> quickstart.py /path/where/secret/is/read/from/credentials.json /path/where/token/is/written/token.pickle
+
+GPublish Script Usage
+========================
+
+* to show the help screen
+
+prompt> gpublish.py -h
+
+* to publish to your google drive
+
+prompt> gpublish.py -t /tmp/token.pickle -c /tmp/credentials.json -f /tmp/file_to_publish.pptx -d MyTest-Directory
+
+* to publish to your google drive verbosely
+
+prompt> gpublish.py -t /tmp/token.pickle -c /tmp/credentials.json -f /tmp/file_to_publish.pptx -d MyTest-Directory -v
+
 Dependencies
 ============
 
@@ -77,7 +101,7 @@ Scripts and Functions:
 
     3. quickstart - this is the boot strapper for confirming credentials and storing tokens
 	
-	4. gmkdir - this is another version of mkdir, supporting creating directory trees
+    4. gmkdir - this is another version of mkdir, supporting creating directory trees
 
 
 To Do List:
