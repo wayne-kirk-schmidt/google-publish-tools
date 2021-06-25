@@ -23,6 +23,7 @@ import pickle
 import apiclient
 import google
 import google_auth_oauthlib
+import googleapiclient
 
 sys.dont_write_bytecode = 1
 
@@ -55,7 +56,7 @@ def main():
         with open(TOKENPICKLE, 'wb') as token:
             pickle.dump(creds, token)
 
-    service = apiclient.discovery.build('drive', 'v3', credentials=creds)
+    service = googleapiclient.discovery.build('drive', 'v3', credentials=creds)
     return service
 
 if __name__ == '__main__':
