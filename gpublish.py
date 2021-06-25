@@ -26,13 +26,16 @@ Style:
 __version__ = '1.0.0'
 __author__ = "Wayne Schmidt (wayne.kirk.schmidt@gmail.com)"
 
-import argparse
-import datetime
+
 import sys
 import os
 import apiclient
-from httplib2 import Http
-from oauth2client import file, client, tools
+import pickle
+import google
+import google_auth_oauthlib
+import googleapiclient
+import argparse
+import datetime
 import mymimetypes
 
 sys.dont_write_bytecode = 1
@@ -61,7 +64,7 @@ LSTAMP = DSTAMP + '.' + TSTAMP
 if ARGS.creds:
     os.environ['CREDENTIALS'] = ARGS.creds
 if ARGS.token:
-    os.environ['TOKENFILE'] = ARGS.token
+    os.environ['TOKENPICKLE'] = ARGS.token
 if ARGS.file:
     os.environ['TARGETFILE'] = ARGS.file
     os.environ['TARGETNAME'] = os.path.basename(ARGS.file)
@@ -70,7 +73,7 @@ if ARGS.dir:
 
 try:
     CREDENTIALS = os.environ['CREDENTIALS']
-    TOKENFILE = os.environ['TOKENFILE']
+    TOKENPICKLE = os.environ['TOKENPICKLE']
     TARGETFILE = os.environ['TARGETFILE']
     TARGETNAME = os.environ['TARGETNAME']
     TARGETDIR = os.environ['TARGETDIR']
@@ -104,17 +107,28 @@ def create_target_dir(service):
         print('FolderID: %s' % folder_id)
     return folder_id
 
+
 def create_auth():
     """
     Fetch or create the credentials used to create the service
     """
-    store = file.Storage(TOKENFILE)
-    creds = store.get()
-    if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets(CREDENTIALS, SCOPES)
-        creds = tools.run_flow(flow, store)
-        service = apiclient.discovery.build('drive', 'v3', http=creds.authorize(Http()))
-    service = apiclient.discovery.build('drive', 'v3', credentials=creds)
+
+    if os.path.exists(TOKENPICKLE):
+        with open(TOKENPICKLE, 'rb') as token:
+            creds = pickle.load(token)
+    # If there are no (valid) credentials available, let the user log in.
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(google.auth.transport.requests.Request())
+        else:
+            flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+                CREDENTIALS, SCOPES)
+            creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+        with open(TOKENPICKLE, 'wb') as token:
+            pickle.dump(creds, token)
+
+    service = googleapiclient.discovery.build('drive', 'v3', credentials=creds)
     return service
 
 def define_mime_types():
