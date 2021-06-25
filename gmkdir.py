@@ -35,9 +35,6 @@ import google_auth_oauthlib
 import googleapiclient
 import argparse
 import datetime
-from httplib2 import Http
-import oauth2client
-from oauth2client import file, client, tools
 
 sys.dont_write_bytecode = 1
 
