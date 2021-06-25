@@ -26,12 +26,17 @@ Style:
 __version__ = '1.0.0'
 __author__ = "Wayne Schmidt (wayne.kirk.schmidt@gmail.com)"
 
-import argparse
-import datetime
 import sys
 import os
 import apiclient
+import pickle
+import google
+import google_auth_oauthlib
+import googleapiclient
+import argparse
+import datetime
 from httplib2 import Http
+import oauth2client
 from oauth2client import file, client, tools
 
 sys.dont_write_bytecode = 1
@@ -59,13 +64,13 @@ LSTAMP = DSTAMP + '.' + TSTAMP
 if ARGS.creds:
     os.environ['CREDENTIALS'] = ARGS.creds
 if ARGS.token:
-    os.environ['TOKENFILE'] = ARGS.token
+    os.environ['TOKENPICKLE'] = ARGS.token
 if ARGS.dir:
     os.environ['TARGETDIR'] = ARGS.dir
 
 try:
     CREDENTIALS = os.environ['CREDENTIALS']
-    TOKENFILE = os.environ['TOKENFILE']
+    TOKENPICKLE = os.environ['TOKENPICKLE']
     TARGETDIR = os.environ['TARGETDIR']
 except KeyError as myerror:
     print('Environment Variable Not Set :: {} '.format(myerror.args[0]))
@@ -103,13 +108,23 @@ def create_auth():
     """
     Fetch or create the credentials used to create the service
     """
-    store = file.Storage(TOKENFILE)
-    creds = store.get()
-    if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets(CREDENTIALS, SCOPES)
-        creds = tools.run_flow(flow, store)
-        service = apiclient.discovery.build('drive', 'v3', http=creds.authorize(Http()))
-    service = apiclient.discovery.build('drive', 'v3', credentials=creds)
+
+    if os.path.exists(TOKENPICKLE):
+        with open(TOKENPICKLE, 'rb') as token:
+            creds = pickle.load(token)
+    # If there are no (valid) credentials available, let the user log in.
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(google.auth.transport.requests.Request())
+        else:
+            flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+                CREDENTIALS, SCOPES)
+            creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+        with open(TOKENPICKLE, 'wb') as token:
+            pickle.dump(creds, token)
+
+    service = googleapiclient.discovery.build('drive', 'v3', credentials=creds)
     return service
 
 def split_target_path(targetpath):
