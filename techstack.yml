@@ -1,7 +1,8 @@
 repo_name: wayne-kirk-schmidt/google-publish-tools
-report_id: 8d50e9ceb29b43d56523bc3cf77eaa48
+report_id: 905f82b0f04bde6a752b3b221556c165
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-14T10:06:27+00:00'
+timestamp: '2024-01-05T09:03:26+00:00'
 requested_by: wayne-kirk-schmidt
 provider: github
 branch: master
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools
   detection_source: Repo Metadata
 - name: pgvector
   description: Open-source vector similarity search for Postgres
@@ -25,6 +27,7 @@ tools:
   category: Data Stores
   sub_category: Database Tools
   image_url: https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -36,6 +39,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools
   detection_source: Repo Metadata
 - name: PyPI
   description: A repository of software for the Python programming language
@@ -45,6 +49,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Hosted Package Repository
   image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -56,6 +61,7 @@ tools:
   category: Communications
   sub_category: Large Language Model Tools
   image_url: https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -65,6 +71,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/7120/no-img-open-source.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -77,6 +84,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20203/default_62eaa5ae8d67ec49176f394957f51b71ae8aa0c1.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -89,6 +97,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -101,6 +110,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/19871/default_d05f6f09935776629f62e8aed365805502c14921.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -113,6 +123,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/19879/default_2270bfab784e3d2c2d999d26b11ee478a9dad238.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -125,6 +136,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20708/default_e885869a0d29385c2822600e997cabd6d7375b02.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-26 12:58:49.000000000 Z
@@ -137,6 +149,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20240/default_8a23a3884b3073b5e1695e2320e46529e60882b3.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-26 12:58:49.000000000 Z
@@ -163,6 +176,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/19956/default_1965f66bb5a4d2eb7b31193d7be6d8a9041d02b9.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-26 12:58:49.000000000 Z
@@ -175,6 +189,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20231/default_cb6acd0ec3f2884b905de7c1ca3a23418f37ebb3.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-26 12:58:49.000000000 Z
@@ -187,6 +202,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/19826/default_d7c684bf2673f008a9f02ac93901229297a22d7e.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
@@ -199,6 +215,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/19922/default_c8be5290cb8d8a8b578535a2c6475d1057ff4ea4.png
+  detection_source_url: https://github.com/wayne-kirk-schmidt/google-publish-tools/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Wayne Kirk Schmidt
   last_updated_on: 2020-05-24 13:53:26.000000000 Z
